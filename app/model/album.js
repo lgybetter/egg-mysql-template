@@ -51,7 +51,8 @@ module.exports = app => {
 
   Album.associate = function() {
     const model = app.model;
-    model.Album.belongsTo(model.User, { foreignKey: 'id' });
+    model.Album.hasMany(model.Photo, { foreignKey: 'album_id' });
+    model.Album.belongsTo(model.User, { foreignKey: 'user_id' });
   };
 
   return Album;

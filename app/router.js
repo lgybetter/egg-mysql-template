@@ -19,6 +19,7 @@ module.exports = app => {
       router.get('/', controller.home.index);
 
       router.resources('albums', '/albums', controller.album);
+      router.resources('photos', '/photos', controller.photo);
     });
   });
 

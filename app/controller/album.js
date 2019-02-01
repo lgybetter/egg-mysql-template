@@ -6,7 +6,11 @@ class AlbumController extends Controller {
 
   async index() {
     const { ctx } = this;
-    const albums = await ctx.model.Album.findAll();
+    const albums = await ctx.model.Album.findAll({
+      where: {
+        user_id: ctx.userId,
+      },
+    });
     ctx.body = albums;
   }
 
@@ -35,10 +39,9 @@ class AlbumController extends Controller {
         type: 'string',
       },
     }, body);
-    const data = {
-      ...body,
+    const data = Object.assign(body, {
       user_id: ctx.userId,
-    }
+    });
     const album = await ctx.model.Album.create(data);
     ctx.body = album;
   }
