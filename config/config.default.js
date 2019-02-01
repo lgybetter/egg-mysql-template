@@ -8,7 +8,7 @@ module.exports = appInfo => {
 
   // add your config here
   config.middleware = [];
-  
+
   // mysql config
   config.sequelize = {
     dialect: 'mysql',
@@ -20,27 +20,36 @@ module.exports = appInfo => {
 
   // jwt
   config.jwt = {
-    secret: 'photolive'
+    secret: 'photolive',
   };
 
   config.cors = {
     origin: '*',
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
-  }
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  };
 
   config.security = {
     csrf: {
-      enable: false
-    }
-  }
+      enable: false,
+    },
+  };
 
   config.multipart = {
     whitelist: [
       '.png',
       '.jpg',
       '.svg',
-      '.gif'
+      '.gif',
     ],
+  };
+
+  config.cos = {
+    client: {
+      secretId: 'AKIDwhFXZMZDIAoFTTqo8D3e2B5kBNL4ly3s',
+      secretKey: 'jDSRAdvzoQpzuc5KL9i4B3h6IFySmskN',
+      bucket: 'lgybetter-1252293784',
+      region: 'ap-guangzhou',
+    },
   };
 
   return config;

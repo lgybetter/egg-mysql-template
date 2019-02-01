@@ -5,14 +5,14 @@ const Service = require('egg').Service;
 class UserService extends Service {
 
   createToken(data) {
-    const app = this.app;
+    const { app } = this;
     return app.jwt.sign(data, app.config.jwt.secret, {
       expiresIn: '12h',
     });
   }
 
   verifyToken(token) {
-    const app = this.app;
+    const { app } = this;
     return new Promise(resolve => {
       app.jwt.verify(token, app.config.jwt.secret, function(err, decoded) {
         const result = {};

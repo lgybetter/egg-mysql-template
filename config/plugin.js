@@ -18,7 +18,7 @@ exports.validate = {
 // jwt
 exports.jwt = {
   enable: true,
-  package: "egg-jwt"
+  package: 'egg-jwt',
 };
 
 // cors
@@ -34,5 +34,10 @@ exports.routerGroup = {
 };
 
 exports.security = {
-  csrf: false
+  csrf: false,
+};
+
+exports.cos = {
+  enable: true,
+  package: 'egg-cos',
 };

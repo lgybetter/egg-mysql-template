@@ -9,7 +9,7 @@ module.exports = app => {
     router.post('/signup', controller.user.signup);
     router.post('/signin', controller.user.signin);
 
-    router.post('/upload/local', controller.upload.index);
+    router.post('/upload/local', controller.upload.local);
 
     router.group({
       name: 'auth::',
