@@ -21,6 +21,14 @@ module.exports = app => {
       router.resources('albums', '/albums', controller.album);
       router.resources('photos', '/photos', controller.photo);
     });
+
+    router.group({
+      name: 'wx::',
+      prefix: '/wx',
+    }, router => {
+      router.get('/album/:album_id/photos', controller.wx.photos);
+    });
+
   });
 
 };

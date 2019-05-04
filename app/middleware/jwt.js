@@ -5,7 +5,7 @@ module.exports = () => {
     const token = ctx.helper.getAccessToken(ctx);
     const verifyResult = await ctx.service.user.verifyToken(token);
     if (!verifyResult.verify) {
-      ctx.status = 200;
+      ctx.status = 401;
       return;
     }
     ctx.userId = verifyResult.message.id;

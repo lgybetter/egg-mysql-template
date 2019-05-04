@@ -29,6 +29,10 @@ class AlbumController extends Controller {
         required: true,
         type: 'string',
       },
+      banners: {
+        require: true,
+        type: 'array',
+      },
       public: {
         required: true,
         type: 'enum',
